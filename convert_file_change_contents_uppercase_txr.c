@@ -34,8 +34,8 @@ while((read(fd,&ch,1))!=0)
  printf("sucessfull transmition of %c\n",ch);
 }
 
- ch='\0';
- write(pd,&ch,1);  
+ch='\0';
+write(pd,&ch,1);  
 printf("\n       Done\n");
 return 0;
 }
