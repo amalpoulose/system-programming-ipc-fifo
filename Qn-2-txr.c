@@ -18,8 +18,8 @@ int main(void)
 	mkfifo("q",0664);
 	perror("pipe2");
 
-	int i,pd,qd,i_arr[20];
-	char c_arr[20];
+	int i,pd,qd,i_arr[100];
+	char c_arr[100];
 	pd=open("p",O_WRONLY);
 	qd=open("q",O_RDONLY);
 	char s[20];
@@ -33,9 +33,10 @@ int main(void)
 	
         read(qd,i_arr,sizeof(i_arr));
         printf("sorted integer array : ");
-	for(i=0;i_arr[i]!=-1;i++)
+	for(i=1;i<i_arr[0];i++)
            printf("%d, ",i_arr[i]);
-
+        strcpy(c_arr,"Sucess");
+	write(pd,s,strlen(c_arr)+1);
 	printf("\b  \n   Done  \n");
 	return 0;
 }
